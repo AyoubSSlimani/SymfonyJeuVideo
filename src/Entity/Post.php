@@ -44,6 +44,12 @@ class Post
      */
     private $numberView;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct()
     {
         $this->PostCategory = new ArrayCollection();
@@ -96,7 +102,7 @@ class Post
         return $this->status;
     }
 
-    public function setStatus(int $status): self
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
@@ -111,6 +117,18 @@ class Post
     public function setNumberView(string $numberView): self
     {
         $this->numberView = $numberView;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Post Category
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="{{ path('admin_read_postCategory') }}">PostCategory Read</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_read_post') }}">Post Read</a></li>
+{#            <li><a class="dropdown-item" href="{{ path('admin_create_postCategory') }}">Post Create</a></li>#}
+{#            <li><a class="dropdown-item" href="{{ path('admin_edit_postCategory')}}">Post Edit</a></li>#}
+{#            <li><a class="dropdown-item" href="{{ path('admin_remove_postCategory')}}">Post Delete</a></li>#}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <p>footer</p>
+{% endblock %}

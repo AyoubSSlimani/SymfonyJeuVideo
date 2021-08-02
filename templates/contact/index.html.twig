@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+        {{ form_start(form) }}
+
+        {{ form_end(form) }}
+    {% endif %}
+{% endblock %}

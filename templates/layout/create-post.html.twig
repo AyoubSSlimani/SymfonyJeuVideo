@@ -1,0 +1,25 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <a class="btn btn-dark" href="{{ path('admin_post') }}">Accueil</a>
+    <a class="btn btn-primary" href="{{ path('admin_create_post') }}">Ajouter</a>
+    <br>
+    {#    {{ form_start(form) }}#}
+
+    {#    {{ form_end(form) }}#}
+    {% for post in postEntities %}
+        <br>
+        <table border="1">
+            <tr>
+                <th>{{ post.title }}
+                    <br>
+                    Nombre de vue: {{ post.numberView }}
+                    <a class="btn btn-danger d-flex justify-content-between" href="{{ path('admin_delete_post', { 'id': post.id}) }}" >Supprimer</a>
+                    <a class="btn btn-warning d-flex justify-content-between" href="{{ path('admin_edit_post', { 'id': post.id}) }}" >Modifier</a></th>
+            </tr>
+        </table>
+        <br>
+    {% endfor %}
+{% endblock %}

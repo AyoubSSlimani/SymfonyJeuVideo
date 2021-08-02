@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Post Category
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="{{ path('admin_read_postCategory') }}">PostCategory Read</a></li>
+            <li><a class="dropdown-item" href="{{ path('admin_read_post') }}">Post Read</a></li>
+            <li><a class="dropdown-item" href="{{ path('contact') }}">Contact</a></li>
+        </ul>
+    </div>
+    <p class="test">Salut home</p>
+{#    <img src="{{ asset('build/image/az.jpg') }}">#}
+    {% for post in postEntities %}
+        <br>
+        <table border="1">
+            <tr>
+                <th>{{ post.title }}</th>
+            </tr>
+            <tr>
+                <th>Nombre de vue: {{ post.numberView }}</th>
+            </tr>
+            <tr>
+                <th><a href="{{ path('detail', { 'id': post.id}) }}">Détail</a> </th>
+            </tr>
+        </table>
+        <br>
+    {% endfor %}
+{% endblock %}

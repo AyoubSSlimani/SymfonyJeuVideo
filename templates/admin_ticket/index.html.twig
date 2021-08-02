@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title  %}Hello AdminTicketController!{% endblock %}
+
+{% block body %}
+    {% for ticket in ticketEntities %}
+        <a href="">{{ ticket.content | length > 10 ? ticket.content|slice(0,10)~'...' : ticket.content }}</a>
+        {% if ticket.status == 1  %}
+        <p>ticket vue</p>
+        {% elseif ticket.status == 2 %}
+            <p>ticket traité</p>
+            <p>{{ ticket.treatedAt.format('d/m/Y') }}</p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
